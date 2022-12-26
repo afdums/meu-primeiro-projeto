@@ -13,7 +13,10 @@ export class FoodAddComponent {
   }
 
   public addFood(value: string){
-    return this.foodListService.postFoodList(value);
+    return this.foodListService.postFoodList(value).subscribe({
+      next: (res) => {this.foodListService.foodListAlert(res)},
+      error: (error) => error
+    });
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodListService } from './services/food-list.service';
 
 @Component({
   selector: 'app-root',
@@ -18,11 +19,15 @@ export class AppComponent implements OnInit{
 
   public pessoa: {nome: string, idade: number} | undefined;
   
-  constructor(){
+  constructor(private foodListService:FoodListService){
 
   }
 
   ngOnInit(): void {
+
+    /*this.foodListService.emitEvent.subscribe(
+      res => alert(`No app.component => ${res}`)
+    );*/
     
   }
   
@@ -34,6 +39,8 @@ export class AppComponent implements OnInit{
     this.pessoa = event;
     console.log(this.pessoa);
   }
+
+  
   
 }
 
